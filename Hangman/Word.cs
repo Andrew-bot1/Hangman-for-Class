@@ -9,7 +9,9 @@ namespace Hangman
 {
     internal class Word
     {
-        private string correctGuesses;
+        public List<char> correctGuesses = new List<char>();
+        public List<char> incorrectGuesses = new List<char>();
+
         private string name;
         private string hidden;
         private int length;
@@ -19,11 +21,11 @@ namespace Hangman
         {
             name= "sequence";
         }
-        
-        public string CorrectGuesses
+
+        public Word(string word)
         {
-            get { return correctGuesses; }
-            set { correctGuesses = value; }
+            name = word;
+            length = word.Length;
         }
 
         public string Name
@@ -53,40 +55,90 @@ namespace Hangman
         public void HideWord()
         {
             hidden = "";
-            if (correctGuesses != null)
+            foreach (char letter in name)
             {
-                foreach (char letter in name)
+                if (correctGuesses.Contains(letter))
                 {
-                    foreach (char let in correctGuesses)
-                    {
-                        if (letter == let)
-                        {
-                            hidden += letter;
-                        }
-                        else if (letter == ' ')
-                        {
-                            hidden += " ";
-                        }
-                        else
-                        {
-                            hidden += "_";
-                        }
-                    }
+                    hidden += letter;
+                }
+                else if (letter == ' ')
+                {
+                    hidden += " ";
+                }
+                else
+                {
+                    hidden += "_";
                 }
             }
-            else
+        }
+
+        public void FailCheck()
+        {
+            if (Misses == 0)
             {
-                foreach (char letter in name)
-                {
-                    if (letter == ' ')
-                    {
-                        hidden += " ";
-                    }
-                    else
-                    {
-                        hidden += "_";
-                    }
-                }
+                Console.WriteLine("  ____");
+                Console.WriteLine(" |");
+                Console.WriteLine(" |");
+                Console.WriteLine(" |");
+                Console.WriteLine(" |");
+                Console.WriteLine("———");
+            }
+            else if (misses == 1)
+            {
+                Console.WriteLine("  ____");
+                Console.WriteLine(" |    |");
+                Console.WriteLine(" |");
+                Console.WriteLine(" |");
+                Console.WriteLine(" |");
+                Console.WriteLine("———");
+            }
+            else if (misses == 2)
+            {
+                Console.WriteLine("  ____");
+                Console.WriteLine(" |    |");
+                Console.WriteLine(" |    O");
+                Console.WriteLine(" |");
+                Console.WriteLine(" |");
+                Console.WriteLine("———");
+            }
+                
+            else if (misses == 3)
+            {
+                Console.WriteLine("  ____");
+                Console.WriteLine(" |    |");
+                Console.WriteLine(" |    O");
+                Console.WriteLine(" |    |");
+                Console.WriteLine(" |    |");
+                Console.WriteLine("———");
+            }
+                
+            else if (misses == 4)
+            {
+                Console.WriteLine("  ____");
+                Console.WriteLine(" |    |");
+                Console.WriteLine(" |    O");
+                Console.WriteLine(" |  \\ |");
+                Console.WriteLine(" |    |");
+                Console.WriteLine("———");
+            }
+                
+            else if (misses == 5)
+            {
+                Console.WriteLine("  ____");
+                Console.WriteLine(" |    |");
+                Console.WriteLine(" |    O");
+                Console.WriteLine(" |  \\ | /");
+                Console.WriteLine(" |    |");
+                Console.WriteLine("———");
+            }
+               
+            else if (misses == 6)
+            {
+                Console.WriteLine("  ____");
+                Console.WriteLine(" |    |");
+                Console.WriteLine(" |    O");
+                Console.WriteLine(" |  \\ | /");
+                Console.WriteLine(" |    |");
             }
         }
     }
