@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -74,32 +74,32 @@ namespace Hangman
 
         public void FailCheck()
         {
+            string ascci = "   ____\n  |\n  |\n  |\n  |\n——--—";
             if (Misses == 0)
             {
-                Console.WriteLine("  ____");
-                Console.WriteLine(" |");
-                Console.WriteLine(" |");
-                Console.WriteLine(" |");
-                Console.WriteLine(" |");
-                Console.WriteLine("———");
+                 ascci= "   ____\n  |\n  |\n  |\n  |\n——--—";
+                Console.WriteLine(ascci);
             }
             else if (misses == 1)
             {
-                Console.WriteLine("  ____");
-                Console.WriteLine(" |    |");
-                Console.WriteLine(" |");
-                Console.WriteLine(" |");
-                Console.WriteLine(" |");
-                Console.WriteLine("———");
+                ascci = ascci.Insert(11, "    |");
+                //Console.WriteLine("  ____");
+                //Console.WriteLine(" |    |");
+                //Console.WriteLine(" |");
+                //Console.WriteLine(" |");
+                //Console.WriteLine(" |");
+                //Console.WriteLine("———");
+                Console.WriteLine(ascci);
             }
             else if (misses == 2)
             {
-                Console.WriteLine("  ____");
-                Console.WriteLine(" |    |");
-                Console.WriteLine(" |    O");
-                Console.WriteLine(" |");
-                Console.WriteLine(" |");
-                Console.WriteLine("———");
+                ascci = ascci.Insert(21, "    O");
+                //Console.WriteLine("  ____");
+                //Console.WriteLine(" |    |");
+                //Console.WriteLine(" |    O");
+                //Console.WriteLine(" |");
+                //Console.WriteLine(" |");
+                //Console.WriteLine("———");
             }
                 
             else if (misses == 3)
