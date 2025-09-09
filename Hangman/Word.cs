@@ -49,7 +49,7 @@ namespace Hangman
         public int Misses
         {
             get { return misses; }
-            set { misses += value; }
+            set { misses = value; }
         }
 
         public void HideWord()
@@ -71,74 +71,43 @@ namespace Hangman
                 }
             }
         }
-
         public void FailCheck()
         {
-            string ascci = "   ____\n  |\n  |\n  |\n  |\n——--—";
             if (Misses == 0)
             {
-                 ascci= "   ____\n  |\n  |\n  |\n  |\n——--—";
-                Console.WriteLine(ascci);
+                Console.WriteLine("   ____\n  |\n  |\n  |\n  |\n——--—");
             }
             else if (misses == 1)
             {
-                ascci = ascci.Insert(11, "    |");
-                //Console.WriteLine("  ____");
-                //Console.WriteLine(" |    |");
-                //Console.WriteLine(" |");
-                //Console.WriteLine(" |");
-                //Console.WriteLine(" |");
-                //Console.WriteLine("———");
-                Console.WriteLine(ascci);
+                Console.WriteLine("   ____\n  |    |\n  |\n  |\n  |\n—--——");
             }
             else if (misses == 2)
             {
-                ascci = ascci.Insert(21, "    O");
-                //Console.WriteLine("  ____");
-                //Console.WriteLine(" |    |");
-                //Console.WriteLine(" |    O");
-                //Console.WriteLine(" |");
-                //Console.WriteLine(" |");
-                //Console.WriteLine("———");
+                Console.WriteLine("   ____\n  |    |\n  |    O\n  |\n  |\n—--——");
             }
-                
+
             else if (misses == 3)
             {
-                Console.WriteLine("  ____");
-                Console.WriteLine(" |    |");
-                Console.WriteLine(" |    O");
-                Console.WriteLine(" |    |");
-                Console.WriteLine(" |    |");
-                Console.WriteLine("———");
+                Console.WriteLine("   ____\n  |    |\n  |    O\n  |    |\n  |\n——--—");
             }
-                
+
             else if (misses == 4)
             {
-                Console.WriteLine("  ____");
-                Console.WriteLine(" |    |");
-                Console.WriteLine(" |    O");
-                Console.WriteLine(" |  \\ |");
-                Console.WriteLine(" |    |");
-                Console.WriteLine("———");
+                Console.WriteLine("   ____\n  |    |\n  |    O\n  |   /|\n  |    \n——--—");
             }
-                
+
             else if (misses == 5)
             {
-                Console.WriteLine("  ____");
-                Console.WriteLine(" |    |");
-                Console.WriteLine(" |    O");
-                Console.WriteLine(" |  \\ | /");
-                Console.WriteLine(" |    |");
-                Console.WriteLine("———");
+                Console.WriteLine("   ____\n  |    |\n  |    O\n  |   /|\\\n  |\n——--—");
             }
-               
+
             else if (misses == 6)
             {
-                Console.WriteLine("  ____");
-                Console.WriteLine(" |    |");
-                Console.WriteLine(" |    O");
-                Console.WriteLine(" |  \\ | /");
-                Console.WriteLine(" |    |");
+                Console.WriteLine("   ____\n  |    |\n  |    O\n  |   /|\\\n  |   /\n——--—");
+            }
+            else if (misses == 7)
+            {
+                Console.WriteLine("   ____\n  |    |\n  |    O\n  |   /|\\\n  |   / \\\n——--—");
             }
         }
     }

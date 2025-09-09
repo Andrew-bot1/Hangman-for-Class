@@ -42,10 +42,11 @@ namespace Hangman
                 int index = rand.Next(wordArray.Length);
                 myWord = new Word(wordArray[index]);
             }
-
+            
             //enter loop until user guesses word or runs out of tries
             while (true)
             {
+                
                 myWord.FailCheck();
                 myWord.HideWord();
 
@@ -54,6 +55,11 @@ namespace Hangman
                     if (myWord.Hidden == myWord.Name)
                     {
                         Console.WriteLine($"You win! The word was {myWord.Name}.");
+                        return;
+                    }
+                    else if (myWord.Misses == 7)
+                    {
+                        Console.WriteLine($"You Lose! The word was {myWord.Name}.");
                         return;
                     }
                     Console.WriteLine($"{myWord.Hidden}\nEnter Guess:");
@@ -80,7 +86,7 @@ namespace Hangman
                     
             }
         }
-
+        //
 
         static void Main(string[] args)
         {
