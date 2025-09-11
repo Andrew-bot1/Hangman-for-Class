@@ -71,7 +71,27 @@ namespace Hangman
                 }
             }
         }
-        public void FailCheck()
+
+        public void UpdateGuesses(Word myWord, char guess)
+        {
+            bool correct = false;
+            foreach (char letter in myWord.Name)
+            {
+                if (letter == guess)
+                {
+                    myWord.correctGuesses.Add(letter);
+                    correct = true;
+                }
+            }
+            if (!correct)
+            {
+                myWord.Misses++;
+                myWord.incorrectGuesses.Add(guess);
+                Console.WriteLine($"Incorrect!");
+            }
+        }
+
+        public void Ascci()
         {
             if (Misses == 0)
             {

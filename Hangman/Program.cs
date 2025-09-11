@@ -13,31 +13,13 @@ namespace Hangman
     {
 
         //method for updating correct guesses
-        static void UpdateGuesses(Word myWord, char guess)
-        {
-            bool correct = false;
-            foreach (char letter in myWord.Name)
-            {
-                if (letter == guess)
-                {
-                    myWord.correctGuesses.Add(letter);
-                    correct = true;
-                }
-            }
-            if (!correct)
-            {
-                myWord.Misses++;
-                myWord.incorrectGuesses.Add(guess);
-                Console.WriteLine($"Incorrect!");
-            }
-
-        }
+        
         static void Game(int gameType)
         {
             Word myWord = new Word();
             if (gameType == 2)
             {
-                string[] wordArray = { "hangman", "programming", "apple", "animal", "house", "computer", "c sharp", "house", "table" };
+                string[] wordArray = { "hangman", "program", "apple", "animal", "house", "computer", "c sharp", "house", "table", "dog", "cat", "hippo", "letter", "bread", "soup" };
                 Random rand = new Random();
                 int index = rand.Next(wordArray.Length);
                 myWord = new Word(wordArray[index]);
@@ -47,7 +29,7 @@ namespace Hangman
             while (true)
             {
                 
-                myWord.FailCheck();
+                myWord.Ascci();
                 myWord.HideWord();
 
                 while (true)
@@ -75,7 +57,7 @@ namespace Hangman
                     }
                     else if (Char.IsLetter(Convert.ToChar(guess)))
                     {
-                        UpdateGuesses(myWord, Convert.ToChar(guess));
+                        myWord.UpdateGuesses(myWord, Convert.ToChar(guess));
                         break;
                     }
                     else
@@ -86,7 +68,7 @@ namespace Hangman
                     
             }
         }
-        //
+        
 
         static void Main(string[] args)
         {
