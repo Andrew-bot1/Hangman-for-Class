@@ -14,7 +14,9 @@ namespace Hangman
             Word myWord = new Word();
             if (gameType == 2)
             {
-                string[] wordArray = { "hangman", "program", "apple", "animal", "house", "computer", "c sharp", "house", "table", "dog", "cat", "hippo", "letter", "bread", "soup" };
+                string[] wordArray = { "hangman", "program", "apple", "animal", "house", 
+                    "computer", "c sharp", "house", "table", "dog", "cat", "hippo", 
+                    "letter", "bread", "soup" };
                 Random rand = new Random();
                 int index = rand.Next(wordArray.Length);
                 myWord = new Word(wordArray[index]);
