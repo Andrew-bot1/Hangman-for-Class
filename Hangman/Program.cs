@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace Hangman
 {
-    
-    
     internal class Program
     {
-
-        //method for updating correct guesses
-        
         static void Game(int gameType)
         {
             Word myWord = new Word();
